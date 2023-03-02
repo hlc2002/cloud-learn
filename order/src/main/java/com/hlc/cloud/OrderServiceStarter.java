@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @Slf4j
+/*开启服务调用Feign的使用*/
 @EnableFeignClients
 public class OrderServiceStarter {
 

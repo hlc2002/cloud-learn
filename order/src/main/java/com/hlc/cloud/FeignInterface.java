@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @project_name spring_cloud
  */
 
+/*对应调用的微服务名称*/
 @FeignClient(name = "product")
 public interface FeignInterface {
-
+    /*对应微服务的访问路径*/
     @GetMapping("/product/{id}")
     Product findById(@PathVariable("id")int id);
 }
