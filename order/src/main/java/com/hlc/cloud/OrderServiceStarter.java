@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +19,8 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 /*开启服务调用Feign的使用*/
 @EnableFeignClients
+/*开启熔断器*/
+@EnableCircuitBreaker
 public class OrderServiceStarter {
 
     @Bean
