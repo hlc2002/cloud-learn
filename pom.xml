@@ -12,6 +12,7 @@
         <module>product</module>
         <module>eureka</module>
         <module>order</module>
+        <module>gateway</module>
     </modules>
     <!--    管理版本统一管理和spring相关的依赖-->
     <parent>

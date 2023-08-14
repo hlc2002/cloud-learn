@@ -1,6 +1,8 @@
 package com.hlc.cloud;
 
 import com.hlc.cloud.entity.Product;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,12 +12,17 @@ import org.springframework.stereotype.Component;
  * @project_name spring_cloud
  */
 @Component("feignHystrix")
-public class FeignHystrix implements FeignInterface{
+@Slf4j
+public class FeignHystrix implements FallbackFactory<FeignInterface> {
 
-    public Product findById(int id) {
-        Product product = new Product();
-        product.setId(-1);
-        product.setProductName("服务熔断");
-        return product;
+    @Override
+    public FeignInterface create(Throwable cause) {
+        return new FeignInterface() {
+            @Override
+            public Product findById(int id) {
+                log.info("{}","获取错误，请重试");
+                return new Product();
+            }
+        };
     }
 }

@@ -7,17 +7,18 @@ package com.hlc.cloud.controller;/*
 
 import com.hlc.cloud.FeignInterface;
 import com.hlc.cloud.entity.Product;
-import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * @author admin
+ */
 @RestController
 @RequestMapping("order")
 //@DefaultProperties(defaultFallback = "getProductFallBack") 统一对打上hystrix熔断降级的接口配置通用降级方法
-public class OrderController {
+public class OrderController implements FeignInterface {
 
     @Autowired
     private RestTemplate restTemplate;
@@ -41,14 +42,8 @@ public class OrderController {
         return product;
     }
 
-    @Qualifier("feignHystrix")
-    @Autowired
-    private FeignInterface feignInterface;
-
-    @GetMapping("/buyByFeign/{id}")
-    public Product getProductByFeign(@PathVariable("id") int id) {
-        return feignInterface.findById(id);
+    @Override
+    public Product findById(int id) {
+        return getProductById(id);
     }
-
-
 }
