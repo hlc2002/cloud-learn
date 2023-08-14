@@ -1,5 +1,6 @@
-package com.hlc.cloud;
+package com.hlc.cloud.fallback;
 
+import com.hlc.cloud.client.OrderControllerClient;
 import com.hlc.cloud.entity.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.FallbackFactory;
@@ -13,11 +14,11 @@ import org.springframework.stereotype.Component;
  */
 @Component("feignHystrix")
 @Slf4j
-public class FeignHystrix implements FallbackFactory<FeignInterface> {
+public class OrderControllerClientFallback implements FallbackFactory<OrderControllerClient> {
 
     @Override
-    public FeignInterface create(Throwable cause) {
-        return new FeignInterface() {
+    public OrderControllerClient create(Throwable cause) {
+        return new OrderControllerClient() {
             @Override
             public Product findById(int id) {
                 log.info("{}","获取错误，请重试");

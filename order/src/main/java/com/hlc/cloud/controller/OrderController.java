@@ -5,7 +5,7 @@ package com.hlc.cloud.controller;/*
     Project_Name: spring_cloud
     */
 
-import com.hlc.cloud.FeignInterface;
+import com.hlc.cloud.client.OrderControllerClient;
 import com.hlc.cloud.entity.Product;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +16,8 @@ import org.springframework.web.client.RestTemplate;
  * @author admin
  */
 @RestController
-@RequestMapping("order")
 //@DefaultProperties(defaultFallback = "getProductFallBack") 统一对打上hystrix熔断降级的接口配置通用降级方法
-public class OrderController implements FeignInterface {
+public class OrderController implements OrderControllerClient {
 
     @Autowired
     private RestTemplate restTemplate;
