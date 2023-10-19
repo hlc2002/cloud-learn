@@ -22,7 +22,7 @@ public class OrderControllerClientFallback implements FallbackFactory<OrderContr
             @Override
             public Product findById(int id) {
                 log.info("{}","获取错误，请重试");
-                return new Product();
+                throw  new RuntimeException(cause.getMessage());
             }
         };
     }

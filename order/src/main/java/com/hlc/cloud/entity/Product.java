@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 
 @Data
 public class Product {
-    private int Id;
+    private int id;
     private String productName;
     private int status;
     private BigDecimal price;

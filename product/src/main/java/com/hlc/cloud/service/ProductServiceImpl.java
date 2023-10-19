@@ -35,7 +35,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product>
             wrapper.eq("id", id);
             return productMapper.selectOne(wrapper);
         } catch (Exception e) {
-            log.info("商品查询模块查询商品id越界");
+            log.error("商品查询模块查询商品id越界:{}",e.getMessage());
             return null;
         }finally {
             wrapper.clear();

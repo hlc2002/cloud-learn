@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @TableName("tb_products")
 public class Product {
     @TableId
-    private int Id;
+    private int id;
     private String productName;
     private int status;
     private BigDecimal price;
