@@ -7,10 +7,10 @@ spring:
     gateway:
       routes:
       - id: order
-        uri: http://127.0.0.1:9002
+        uri: http://127.0.0.1:10001
         predicates:
         - Path=/order/**
       - id: product
-        uri: http://127.0.0.1:9001
+        uri: http://127.0.0.1:10002
         predicates:
         - Path=/product/**
