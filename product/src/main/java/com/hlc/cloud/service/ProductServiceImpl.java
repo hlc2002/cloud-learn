@@ -5,7 +5,6 @@ package com.hlc.cloud.service;/*
     Project_Name: spring_cloud
     */
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hlc.cloud.dao.ProductMapper;

@@ -7,6 +7,11 @@
       <option name="url" value="http://repo.spring.io/libs-snapshot-local" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="http://dev.nexus.runjingchina.cn:8081/repository/public/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="nexus" />
       <option name="name" value="Team Nexus Repository" />
       <option name="url" value="http://dev.nexus.runjingchina.cn:8081/repository/public/" />
